@@ -67,5 +67,6 @@ http://localhost:3000
 * Eliminación de productos
 
 ## Autor
+#Edgar andres salazar cervantes
 
 Proyecto desarrollado para la asignatura Desarrollo e Implementación de Sistemas.
