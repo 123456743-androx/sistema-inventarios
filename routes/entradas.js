@@ -82,6 +82,17 @@ res.status(500).send(
 
 });
 
+router.get("/entradas",async(req,res)=>{
+
+const entradas = await Entrada.find();
+
+res.render("entradas",{
+
+entradas
+
+});
+
+});
 
 
 

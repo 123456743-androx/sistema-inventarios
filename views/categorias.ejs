@@ -167,3 +167,55 @@ Guardar Categoría
 
 
 </html>
+
+<hr>
+
+<h2>Categorías Registradas</h2>
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+
+<th>Nombre</th>
+
+<th>Descripción</th>
+
+<th>Acciones</th>
+
+</tr>
+
+<% categorias.forEach(categoria=>{ %>
+
+<tr>
+
+<td><%= categoria.id_categoria %></td>
+
+<td><%= categoria.nombre %></td>
+
+<td><%= categoria.descripcion %></td>
+
+<td>
+
+<a href="/editar-categoria/<%= categoria._id %>">
+
+Editar
+
+</a>
+
+|
+
+<a href="/eliminar-categoria/<%= categoria._id %>">
+
+Eliminar
+
+</a>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>

@@ -309,3 +309,67 @@ Eliminar
 </body>
 
 </html>
+
+<hr>
+
+<h2>Productos Registrados</h2>
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+
+<th>Nombre</th>
+
+<th>Descripción</th>
+
+<th>Precio</th>
+
+<th>Stock</th>
+
+<th>Categoría</th>
+
+<th>Acciones</th>
+
+</tr>
+
+<% productos.forEach(producto=>{ %>
+
+<tr>
+
+<td><%= producto.id_producto %></td>
+
+<td><%= producto.nombre %></td>
+
+<td><%= producto.descripcion %></td>
+
+<td>$<%= producto.precio.toFixed(2) %></td>
+
+<td><%= producto.stock %></td>
+
+<td><%= producto.id_categoria %></td>
+
+<td>
+
+<a href="/editar-producto/<%= producto._id %>">
+
+Editar
+
+</a>
+
+|
+
+<a href="/eliminar-producto/<%= producto._id %>">
+
+Eliminar
+
+</a>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>
