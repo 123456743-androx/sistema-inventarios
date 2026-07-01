@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Entradas de Inventario</title>
+
+<link rel="stylesheet" href="/style.css">
+
+</head>
+
+
+<body>
+
+
+<h1>Registro de Entradas</h1>
+
+
+<nav>
+
+<a href="/productos">Productos</a>
+
+<a href="/entradas">Entradas</a>
+
+<a href="/salidas">Salidas</a>
+
+</nav>
+
+
+<form action="/entrada" method="POST">
+
+
+<label>ID Producto</label>
+
+<input 
+type="text"
+name="producto"
+placeholder="ID del producto"
+required>
+
+
+
+<label>ID Proveedor</label>
+
+<input 
+type="text"
+name="proveedor"
+placeholder="ID proveedor"
+required>
+
+
+
+<label>Cantidad</label>
+
+<input 
+type="number"
+name="cantidad"
+placeholder="Cantidad"
+required>
+
+
+
+<button>
+Registrar Entrada
+</button>
+
+
+</form>
+
+
+
+<h2>Movimiento de entradas</h2>
+
+
+<table border="1">
+
+
+<tr>
+
+<th>Producto</th>
+
+<th>Proveedor</th>
+
+<th>Cantidad</th>
+
+<th>Fecha</th>
+
+
+</tr>
+
+
+</table>
+
+
+</body>
+
+</html>

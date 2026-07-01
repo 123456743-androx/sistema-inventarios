@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Categorías</title>
+
+<link rel="stylesheet" href="/style.css">
+
+</head>
+
+
+<body>
+
+
+<h1>Gestión de Categorías</h1>
+
+
+<nav>
+
+<a href="/productos">
+Productos
+</a>
+
+<a href="/entradas">
+Entradas
+</a>
+
+<a href="/salidas">
+Salidas
+</a>
+
+<a href="/categorias">
+Categorías
+</a>
+
+
+</nav>
+
+
+<hr>
+
+
+<h2>Crear Categoría</h2>
+
+
+<form action="/categoria" method="POST">
+
+
+<label>ID Categoría</label>
+
+<input
+
+type="text"
+
+name="id_categoria"
+
+placeholder="Ejemplo: 01"
+
+required>
+
+
+
+<label>Nombre</label>
+
+<input
+
+type="text"
+
+name="nombre"
+
+placeholder="Ejemplo: Especias"
+
+required>
+
+
+
+
+<label>Descripción</label>
+
+<input
+
+type="text"
+
+name="descripcion"
+
+placeholder="Descripción">
+
+
+
+<button>
+
+Guardar Categoría
+
+</button>
+
+
+</form>
+
+
+
+<hr>
+
+
+<h2>Categorías Registradas</h2>
+
+
+
+<table border="1">
+
+
+<tr>
+
+<th>ID</th>
+
+<th>Nombre</th>
+
+<th>Descripción</th>
+
+</tr>
+
+
+
+
+<% categorias.forEach(categoria=>{ %>
+
+
+<tr>
+
+
+<td>
+
+<%= categoria.id_categoria %>
+
+</td>
+
+
+<td>
+
+<%= categoria.nombre %>
+
+</td>
+
+
+
+<td>
+
+<%= categoria.descripcion %>
+
+</td>
+
+
+
+</tr>
+
+
+
+<% }) %>
+
+
+
+</table>
+
+
+
+</body>
+
+
+</html>

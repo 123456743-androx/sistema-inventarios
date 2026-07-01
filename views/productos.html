@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Sistema de Inventario - Productos</title>
+
+<link rel="stylesheet" href="/style.css">
+
+</head>
+
+
+<body>
+
+
+<h1>Gestión de Productos</h1>
+
+
+
+<nav>
+
+<a href="/productos">
+Productos
+</a>
+
+
+<a href="/entradas">
+Entradas
+</a>
+
+
+<a href="/salidas">
+Salidas
+</a>
+
+
+<a href="/categorias">
+Categorías
+</a>
+
+
+</nav>
+
+
+
+<hr>
+
+
+
+<h2>Agregar Producto</h2>
+
+
+
+
+<form action="/agregar-producto" method="POST">
+
+
+
+<label>ID Producto</label>
+
+<input
+
+type="text"
+
+name="id_producto"
+
+placeholder="Ejemplo: P001"
+
+required>
+
+
+
+
+<label>Nombre del producto</label>
+
+<input
+
+type="text"
+
+name="nombre"
+
+placeholder="Ejemplo: Azúcar"
+
+required>
+
+
+
+
+
+<label>Descripción</label>
+
+<input
+
+type="text"
+
+name="descripcion"
+
+placeholder="Descripción del producto"
+
+required>
+
+
+
+
+
+<label>Precio</label>
+
+<input
+
+type="number"
+
+name="precio"
+
+step="0.01"
+
+placeholder="Ejemplo: 25.50"
+
+required>
+
+
+
+
+
+<label>Stock inicial</label>
+
+<input
+
+type="number"
+
+name="stock"
+
+placeholder="Cantidad"
+
+required>
+
+
+
+
+
+<label>ID Categoría</label>
+
+<input
+
+type="text"
+
+name="id_categoria"
+
+placeholder="Ejemplo: 01"
+
+required>
+
+
+
+
+
+<button type="submit">
+
+Agregar Producto
+
+</button>
+
+
+
+</form>
+
+
+
+
+
+<hr>
+
+
+
+
+<h2>Lista de Productos</h2>
+
+
+
+
+
+<table border="1">
+
+
+<tr>
+
+<th>ID Producto</th>
+
+<th>Nombre</th>
+
+<th>Descripción</th>
+
+<th>Precio</th>
+
+<th>Stock</th>
+
+<th>ID Categoría</th>
+
+<th>Acciones</th>
+
+
+</tr>
+
+
+
+
+<% productos.forEach(producto => { %>
+
+
+
+<tr>
+
+
+
+<td>
+
+<%= producto.id_producto %>
+
+</td>
+
+
+
+<td>
+
+<%= producto.nombre %>
+
+</td>
+
+
+
+
+<td>
+
+<%= producto.descripcion %>
+
+</td>
+
+
+
+
+<td>
+
+$ <%= producto.precio.toFixed(2) %>
+
+</td>
+
+
+
+
+<td>
+
+<%= producto.stock %>
+
+</td>
+
+
+
+
+<td>
+
+<%= producto.id_categoria %>
+
+</td>
+
+
+
+
+<td>
+
+
+<a href="/editar-producto/<%= producto._id %>">
+
+Editar
+
+</a>
+
+
+
+<br>
+
+
+
+<a href="/eliminar-producto/<%= producto._id %>">
+
+Eliminar
+
+</a>
+
+
+
+</td>
+
+
+</tr>
+
+
+
+
+<% }) %>
+
+
+
+
+</table>
+
+
+
+
+
+</body>
+
+</html>
