@@ -1,12 +1,19 @@
 <form action="/entrada" method="POST">
 
 
-<label>ID Producto</label>
+<select name="producto">
 
-<input
-name="producto"
-placeholder="Ejemplo P001"
-required>
+<% productos.forEach(producto=>{ %>
+
+<option value="<%=producto.id_producto%>">
+
+<%=producto.nombre%>
+
+</option>
+
+<% }) %>
+
+</select>
 
 
 
@@ -17,6 +24,15 @@ name="id_categoria"
 placeholder="Ejemplo 01"
 required>
 
+
+<label>Precio de Costo</label>
+
+<input
+type="number"
+step="0.01"
+name="precio_costo"
+placeholder="Ejemplo: 18.50"
+required>
 
 
 <label>Cantidad</label>
@@ -70,3 +86,5 @@ Registrar Entrada
 <% }) %>
 
 </table>
+
+precio_costo:Number

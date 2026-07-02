@@ -103,7 +103,7 @@ required>
 
 
 
-<label>Precio</label>
+<label>Precio de Venta</label>
 
 <input
 
@@ -117,6 +117,18 @@ placeholder="Ejemplo: 25.50"
 
 required>
 
+
+<label>Precio de Costo</label>
+
+<input
+
+type="number"
+
+step="0.01"
+
+name="precio_costo"
+
+required>
 
 
 
@@ -137,17 +149,21 @@ required>
 
 
 
-<label>ID Categoría</label>
+<label>Categoría</label>
 
-<input
+<select name="id_categoria" required>
 
-type="text"
+<% categorias.forEach(categoria=>{ %>
 
-name="id_categoria"
+<option value="<%=categoria.id_categoria%>">
 
-placeholder="Ejemplo: 01"
+<%=categoria.nombre%>
 
-required>
+</option>
+
+<% }) %>
+
+</select>
 
 
 

@@ -1,43 +1,58 @@
-const express=require("express");
+const express = require("express");
+const router = express.Router();
 
-const router=express.Router();
-
-
-const Salida=require("../models/Salida");
-const Producto=require("../models/Producto");
+const Salida = require("../models/Salida");
+const Producto = require("../models/Producto");
 
 
+// Mostrar la página de salidas
+router.get("/salidas", async (req, res) => {
 
-router.post("/salida",async(req,res)=>{
+    try {
 
+        const salidas = await Salida.find();
 
-const salida=new Salida(req.body);
+        res.render("salidas", {
+            salidas
+        });
 
+    } catch (error) {
 
-await salida.save();
+        console.log(error);
+        res.send("Error al cargar las salidas");
 
-
-
-await Producto.findByIdAndUpdate(
-
-req.body.producto,
-
-{
-
-$inc:{
-stock:-req.body.cantidad
-}
-
-}
-
-);
-
-
-
-res.send("Salida registrada");
-
+    }
 
 });
 
 
-module.exports=router;
+// Registrar salida
+router.post("/salida", async (req, res) => {
+
+    try {
+
+        const salida = new Salida(req.body);
+
+        await salida.save();
+
+        await Producto.findOneAndUpdate(
+            { id_producto: req.body.producto },
+            {
+                $inc: {
+                    stock: -Number(req.body.cantidad)
+                }
+            }
+        );
+
+        res.redirect("/salidas");
+
+    } catch (error) {
+
+        console.log(error);
+        res.send("Error al registrar la salida");
+
+    }
+
+});
+
+module.exports = router;

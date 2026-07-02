@@ -1,68 +1,54 @@
 const mongoose = require("mongoose");
 
+const productoSchema = new mongoose.Schema({
 
-const ProductoSchema = new mongoose.Schema({
+    id_producto:{
+        type:String,
+        unique:true
+    },
 
-id_producto:{
-type:String
-},
+    nombre:{
+        type:String,
+        required:true
+    },
 
+    descripcion:String,
 
-nombre:{
-type:String,
-required:true
-},
+    precio_venta:{
+        type:Number,
+        required:true
+    },
 
+    stock:{
+        type:Number,
+        default:0
+    },
 
-descripcion:String,
-
-
-precio:{
-type:Number,
-required:true
-},
-
-
-stock:{
-type:Number,
-default:0
-},
-
-
-id_categoria:{
-type:String,
-required:true
-}
-
+    id_categoria:{
+        type:String,
+        required:true
+    }
 
 });
 
 
-// Crear ID automático
+productoSchema.pre("save",async function(next){
 
-ProductoSchema.pre("save", async function(next){
+    if(!this.id_producto){
 
+        const cantidad =
+        await mongoose.model("Producto").countDocuments();
 
-if(!this.id_producto){
+        this.id_producto =
+        "P"+String(cantidad+1).padStart(3,"0");
 
+    }
 
-let cantidad = await mongoose.model("Producto").countDocuments();
-
-
-this.id_producto = "P00" + (cantidad + 1);
-
-
-}
-
-
-next();
-
+    next();
 
 });
-
-
 
 module.exports = mongoose.model(
 "Producto",
-ProductoSchema
+productoSchema
 );

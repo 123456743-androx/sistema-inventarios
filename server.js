@@ -116,7 +116,7 @@ app.get('/productos', async(req, res) => {
     <form action="/agregar-producto" method="POST">
     <input type="text" name="nombre" placeholder="Nombre" required>
     <input type="number" name="precio" step="0.01" placeholder="Precio $" required>
-    <input type="number" name="stock" placeholder="Stock" required>
+    
     <button>Agregar</button>
     </form>
     <table border="1">
@@ -207,7 +207,7 @@ app.get("/entradas", (req, res) => {
 });
 
 app.get("/salidas", (req, res) => {
-    res.sendFile(path.join(__dirname, "views/salidas.html"));
+    res.render("salidas");
 });
 
 app.get("/categorias", (req, res) => {

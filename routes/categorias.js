@@ -47,13 +47,7 @@ router.get("/categorias", async (req, res) => {
 
 <form action="/categoria" method="POST">
 
-<label>ID Categoría</label>
 
-<input
-type="text"
-name="id_categoria"
-placeholder="Ejemplo: C001"
-required>
 
 <label>Nombre</label>
 
@@ -137,13 +131,13 @@ router.post("/categoria", async (req, res) => {
 
     try {
 
-        const categoria = new Categoria({
+const categoria = new Categoria({
 
-            id_categoria: req.body.id_categoria,
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion
+    nombre:req.body.nombre,
 
-        });
+    descripcion:req.body.descripcion
+
+});
 
         await categoria.save();
 
